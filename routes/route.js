@@ -1,10 +1,10 @@
 const express = require('express')
 const route = express.Router()
-
+const {index,login,signup} = require('./../controller/index')
 //BEFORE LOGIN
-route.get('/', (req, res) => res.send('Hello World!'))
-route.get('/login', (req, res) => res.send('Hello login!'))
-route.get('/signup', (req, res) => res.send('Hello signup!'))
+route.get('/', index)
+route.get('/login', login)
+route.get('/signup', signup)
 
 
 //AFTER LOGIN
