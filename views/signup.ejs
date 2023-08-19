@@ -1,24 +1,32 @@
 <div class="form_body">
     <div class="form_box">
         <h1>Signup</h1>
+        <% if(error != ''){ %>
+            <div class="alert error">
+              <%= error %>
+            </div>
+        <% } %>
+         
+        <form action="/signup" method="post">
         <div class="form_group">
             <label for="Fullname">Fullname</label>
-            <input type="text" name="fullname" id="fullname" value="Rituraj" placeholder="Enter Full Name">
+            <input type="text" name="full_name" id="fullname" placeholder="Enter Full Name">
         </div>
         <div class="form_group">
             <label for="Email">Email</label>
-            <input type="Email" name="Email" id="Email" placeholder="Enter Email Address">
+            <input type="Email" name="email" id="Email" placeholder="Enter Email Address">
         </div>
         <div class="form_group">
             <label for="dob">DOB</label>
-            <input type="date" name="dob" id="dob" value="2005-02-02" placeholder="Enter Date Of Birth">
+            <input type="date" name="dob" id="dob" placeholder="Enter Date Of Birth">
         </div>
         <div class="form_group">
             <label for="Password">Password</label>
-            <input type="Password" name="Password" id="Password" placeholder="Enter Current Password">
+            <input type="Password" name="password" id="Password" placeholder="Enter Current Password">
         </div>
         <div class="form_group">
-            <button class="btn btn-dark">Login</button>
+            <button type="submit" class="btn btn-dark">Signup</button>
         </div>
+    </form>
     </div>
 </div>

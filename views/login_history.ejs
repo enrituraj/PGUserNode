@@ -1,0 +1,34 @@
+<main class="main">
+    
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Login History</h3>
+        </div>
+        <div class="card-body">
+            <table id="myTable" class="responsive_table">
+                <tbody><tr>
+                    <th>Sr.no</th>
+                    <th>IP Address</th>
+                    <th>Browser</th>
+                    <th>Operating System</th>
+                    <th>Location</th>
+                    <th>Session Time</th>
+                </tr>
+                <% var i = 1; %>
+<% data.forEach(data => { %>
+
+    <tr>
+        <td data-cell="Sr.no"><%= i++; %></td>
+        <td data-cell="IP Address"><%= data.ip_address %></td>
+        <td data-cell="Browser"><%= data.browser %></td>
+        <td data-cell="Operating System"><%= data.operating_system %></td>
+        <td data-cell="Location"><%= data.location %></td>
+        <td data-cell="Session Time">45 min</td>
+    </tr>
+
+
+<% }) %>
+            </tbody></table>
+        </div>
+    </div>
+    </main>
