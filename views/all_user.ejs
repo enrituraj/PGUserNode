@@ -16,60 +16,42 @@
                     <th>Country</th>
                     <th>Action</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Jane Smith</td>
-                    <td>jane@example.com</td>
-                    <td>janesmith456</td>
-                    <td>Female</td>
-                    <td>Canada</td>
-                    <td>
+
+
+                <% var i = 1; %>
+                <% data.forEach(data => { %>
+                
+                    <tr>
+                        <td data-cell="Sr.no"><%= i++; %></td>
+                        <td data-cell="Full name"><%= data.full_name %></td>
+                        <td data-cell="Email"><%= data.email %></td>
+                        <td data-cell="Username"><%= data.username %></td>
+                        <td data-cell="Gender"><%= data.gender %></td>
+                        <td data-cell="Country"><%= data.country %></td>
+                        
+                    <td data-cell="Actions">
                         <div class="dropdown" data-dropdown="">
-                            <a class="dropdown_btn btn btn-light" data-dropdown-button="">Login</a>
+                            <a class="dropdown_btn btn btn-light" data-dropdown-button="">Actions</a>
                             <div class="dropdown-menu">
+                                    <a href="view_user?id=<%= data.member_id %>" class="dropdown_item sm">View Detail</a>
+                                
                                 <form action="">
-                                    <a href="view_detail.html" class="dropdown_item sm">View Detail</a>
+                                    <a href="picture_setting?id=<%= data.member_id %>" class="dropdown_item sm">Picture Setting</a>
                                 </form>
                                 <form action="">
-                                    <a href="picture_setting.html" class="dropdown_item sm">Picture Setting</a>
+                                    <a href="update_record?id=<%= data.member_id %>" class="dropdown_item sm">Update Record</a>
                                 </form>
                                 <form action="">
-                                    <a href="update_record.html" class="dropdown_item sm">Update Record</a>
-                                </form>
-                                <form action="">
-                                    <a href="delete_record.html" class="dropdown_item sm">Delete Record</a>
+                                    <a href="delete_record?id=<%= data.member_id %>" class="dropdown_item sm">Delete Record</a>
                                 </form>
                             </div>
                           </div>
                     </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jane Smith</td>
-                    <td>jane@example.com</td>
-                    <td>janesmith456</td>
-                    <td>Female</td>
-                    <td>Canada</td>
-                    <td>
-                        <div class="dropdown" data-dropdown="">
-                            <a class="dropdown_btn btn btn-light" data-dropdown-button="">Login</a>
-                            <div class="dropdown-menu">
-                                <form action="">
-                                    <a href="#" class="dropdown_item sm">View Detail</a>
-                                </form>
-                                <form action="">
-                                    <a href="#" class="dropdown_item sm">Picture Setting</a>
-                                </form>
-                                <form action="">
-                                    <button type="submit" class="dropdown_item btn-none sm">Update Record</button>
-                                </form>
-                                <form action="">
-                                    <a href="#" class="dropdown_item sm">Delete Record</a>
-                                </form>
-                            </div>
-                          </div>
-                    </td>
-                </tr>
+                    </tr>
+                
+                
+                <% }) %>
+
             </tbody></table>
         </div>
     </div>

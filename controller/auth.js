@@ -38,7 +38,6 @@ const login_post =  async(req, res) => {
     await client.query('INSERT INTO login_history (login_id, ip_address, browser, operating_system, location, login_time) VALUES ($1, $2, $3, $4, $5, $6)', [user.user_id, ipAddress, browser, operatingSystem, location, currentTime]);
    
 
-
         
         req.flash('error', 'Invalid email or password');
         res.redirect('/dashboard');

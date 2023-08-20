@@ -6,11 +6,34 @@
                     <div class="user_image">
                         <img src="./img/avatar.png" alt="user profile image">
                         <div class="user_detail">
-                            <h3>                                    <%= typeof user.full_name !='undefined' ? user.full_name : 'N/A' %>
+                            <h3>
+                                <%= typeof user.full_name !='undefined' ? user.full_name : 'N/A' %>
                             </h3>
-                            <h3>                                    <%= typeof user.email !='undefined' ? user.email : 'N/A' %>
+                            <h3>
+                                <%= typeof user.email !='undefined' ? user.email : 'N/A' %>
                             </h3>
-                            <h3>                                    <%= typeof user.created_at !='undefined' ? user.created_at : 'N/A' %>
+                            <h3>
+                                <% function addOrdinalSuffix(day) {
+                                    if (day >= 11 && day <= 13) {
+                                      return day + "th";
+                                    }
+                                    switch (day % 10) {
+                                      case 1: return day + "st";
+                                      case 2: return day + "nd";
+                                      case 3: return day + "rd";
+                                      default: return day + "th";
+                                    }
+                                  }
+                                  const createdDate = new Date(user.created_at);
+                                  const monthNames = [
+                                    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                                    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+                                  ];
+                                  const formattedDate = addOrdinalSuffix(createdDate.getDate()) + " " +
+                                                       monthNames[createdDate.getMonth()] + " " +
+                                                       createdDate.getFullYear();
+                               %>
+                               <%= formattedDate %>
                             </h3>
                         </div>
                     </div>
@@ -82,7 +105,7 @@
                             <tr>
                                 <td>created_at</td>
                                 <td>
-                                    <%= typeof user.created_at !='undefined' ? user.created_at : 'N/A' %>
+                                    <%= typeof user.created_at !='undefined' ? formattedDate  : 'N/A' %>
                                 </td>
                             </tr>
                         </tbody>

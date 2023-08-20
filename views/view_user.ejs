@@ -1,0 +1,136 @@
+<main class="main">
+    <div class="row">
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="user_image">
+                        <img src="./img/avatar.png" alt="user profile image">
+                        <div class="user_detail">
+                            <h3><%= typeof data.full_name !='undefined' ? data.full_name : 'N/A' %></h3>
+                            <h3><%= typeof data.email !='undefined' ? data.email : 'N/A' %></h3>
+                            <h3><%= typeof data.full_name !='undefined' ? data.full_name : 'N/A' %></h3>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Danger Zone</h3>
+                </div>
+                <div class="card-body">
+                    <div class="msg_danger">
+                        <p><b>Are you sure you want to delete your account?</b>
+                        <br>
+                            Once you delete your account, there is no going back. Please be certain.
+
+                        </p>
+                    </div>
+                    <a onclick="ShowPopup()" class="btn btn-dark">Delete Account</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-9">
+
+            <div class="card">
+                <div class="card-header col-2">
+                    <h3 class="card-title sm-hidden"><%= typeof data.full_name !='undefined' ? data.full_name : 'N/A' %></h3>
+                    <a class="btn btn-dark" onclick="window.print()">Print</a>
+                </div>
+                <div class="card-body overflow-x">
+                    <table class="responsive_table column_2">
+                        
+      
+   
+<tbody><tr>
+    <td>full_name</td>
+    <td data-cell="Full name"><%= typeof data.full_name !='undefined' ? data.full_name : 'N/A' %></td>
+</tr>
+<tr>
+    <td>username</td>
+    <td data-cell="Username"><%= typeof data.username !='undefined' ? data.username : 'N/A' %></td>
+</tr>
+<tr>
+    <td>email</td>
+    <td data-cell="Email"><%= typeof data.email !='undefined' ? data.email : 'N/A' %></td>
+</tr>
+<tr>
+    <td>date_of_birth</td>
+    <td data-cell="DOB">
+        <% function formatDate(inputDate) {
+            const date = new Date(inputDate);
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+            const year = date.getFullYear();
+            return `${year}-${month}-${day}`;
+          }
+       %>
+       
+          <%= formatDate(data.date_of_birth) %>
+    </td>
+</tr>
+<tr>
+    <td>gender</td>
+    <td data-cell="Gender"><%= typeof data.gender !='undefined' ? data.gender : 'N/A' %></td>
+</tr>
+<tr>
+    <td>mobile_no</td>
+    <td data-cell="Mobile No"><%= typeof data.mobile_no !='undefined' ? data.mobile_no : 'N/A' %></td>
+</tr>
+<tr>
+    <td>country</td>
+    <td data-cell="Country"><%= typeof data.country !='undefined' ? data.country : 'N/A' %></td>
+</tr>
+<tr>
+    <td>state</td>
+    <td data-cell="State"><%= typeof data.state !='undefined' ? data.state : 'N/A' %></td>
+</tr>
+<tr>
+    <td>pincode</td>
+    <td data-cell="Pincode"><%= typeof data.pincode !='undefined' ? data.pincode : 'N/A' %></td>
+</tr>
+<tr>
+    <td>city</td>
+    <td data-cell="City"><%= typeof data.city !='undefined' ? data.city : 'N/A' %></td>
+</tr>
+<tr>
+    <td>summary</td>
+    <td data-cell="Summary"><%= typeof data.summary !='undefined' ? data.summary : 'N/A' %></td>
+</tr>
+<tr>
+    <td>website</td>
+    <td data-cell="website"><%= typeof data.website !='undefined' ? data.website : 'N/A' %></td>
+</tr>
+<tr>
+    <td>twitter</td>
+    <td data-cell="twitter"><%= typeof data.twitter !='undefined' ? data.twitter : 'N/A' %></td>
+</tr>
+<tr>
+    <td>linkedin</td>
+    <td data-cell="linkedin"><%= typeof data.linkedin !='undefined' ? data.linkedin : 'N/A' %></td>
+</tr>
+<tr>
+    <td>instagram</td>
+    <td data-cell="instagram"><%= typeof data.instagram !='undefined' ? data.instagram : 'N/A' %></td>
+</tr>
+<tr>
+    <td>work</td>
+    <td data-cell="work"><%= typeof data.work !='undefined' ? data.work : 'N/A' %></td>
+</tr>
+<tr>
+    <td>education</td>
+    <td data-cell="education"><%= typeof data.education !='undefined' ? data.education : 'N/A' %></td>
+</tr>
+<tr>
+    <td>technical_skill</td>
+    <td data-cell="skill"><%= typeof data.technical_skill !='undefined' ? data.technical_skill : 'N/A' %></td>
+</tr>     
+         
+      
+                    </tbody></table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
