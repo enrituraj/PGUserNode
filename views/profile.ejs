@@ -1,0 +1,133 @@
+<main class="main">
+    <div class="row">
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="user_image">
+                        <img src="./img/avatar.png" alt="user profile image">
+                        <div class="user_detail">
+                            <h3>
+                                <%= typeof user.full_name !='undefined' ? user.full_name : 'N/A' %>
+                            </h3>
+                            <h3>
+                                <%= typeof user.email !='undefined' ? user.email : 'N/A' %>
+                            </h3>
+                            <h3>
+                                <% function addOrdinalSuffix(day) {
+                                    if (day >= 11 && day <= 13) {
+                                      return day + "th";
+                                    }
+                                    switch (day % 10) {
+                                      case 1: return day + "st";
+                                      case 2: return day + "nd";
+                                      case 3: return day + "rd";
+                                      default: return day + "th";
+                                    }
+                                  }
+                                  const createdDate = new Date(user.created_at);
+                                  const monthNames = [
+                                    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                                    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+                                  ];
+                                  const formattedDate = addOrdinalSuffix(createdDate.getDate()) + " " +
+                                                       monthNames[createdDate.getMonth()] + " " +
+                                                       createdDate.getFullYear();
+                               %>
+                               <%= formattedDate %>
+                            </h3>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Danger Zone</h3>
+                </div>
+                <div class="card-body">
+                    <div class="msg_danger">
+                        <p><b>Are you sure you want to delete your account?</b>
+                            <br>
+                            Once you delete your account, there is no going back. Please be certain.
+
+                        </p>
+                    </div>
+                    <a onclick="ShowPopup()" class="btn btn-dark">Delete Account</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-9">
+
+            <div class="card">
+                <div class="card-header col-2">
+                    <h3 class="card-title">My Profile</h3>
+                    <a href="edit_profile.html" class="btn btn-dark">Edit Profile</a>
+                </div>
+                <div class="card-body overflow-x">
+                    <table class="profile_data">
+                        <tbody>
+                            <tr>
+                                <td>Name</td>
+                                <td>
+                                    <%= typeof user.full_name !='undefined' ? user.full_name : 'N/A' %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Gender</td>
+                                <td>
+                                    <%= typeof user.gender !='undefined' ? user.gender : 'N/A' %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Username</td>
+                                <td>
+                                    <%= typeof user.username !='undefined' ? user.username : 'N/A' %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>
+                                    <%= typeof user.email !='undefined' ? user.email : 'N/A' %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>DOB</td>
+                                <td>
+                                    <%= typeof user.dob !='undefined' ? user.dob : 'N/A' %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>password</td>
+                                <td>
+                                    <%= typeof user.password !='undefined' ? user.password : 'N/A' %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>created_at</td>
+                                <td>
+                                    <%= typeof user.created_at !='undefined' ? formattedDate  : 'N/A' %>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="popup" id="popup">
+        <div class="popup_body">
+            <div class="popup_confirm">
+                <img src="./img/avatar.png" alt="">
+                <h2>Are you sure you want to delete your account?</h2>
+
+            </div>
+            <div class="btn_group">
+                <a href="#" onclick="ShowPopup()">Cancle</a>
+                <a href="">Yes Sure</a>
+            </div>
+        </div>
+    </div>
+</main>

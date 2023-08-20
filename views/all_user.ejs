@@ -1,0 +1,58 @@
+<main class="main">
+    
+    <div class="card">
+        <div class="card-header col-2">
+            <h3 class="card-title">All User</h3>
+            <a href="" class="btn btn-dark">Add User</a>
+        </div>
+        <div class="card-body">
+            <table id="myTable" class="responsive_table">
+                <tbody><tr>
+                    <th>S.no</th>
+                    <th>Full name</th>
+                    <th>Email</th>
+                    <th>Username</th>
+                    <th>Gender</th>
+                    <th>Country</th>
+                    <th>Action</th>
+                </tr>
+
+
+                <% var i = 1; %>
+                <% data.forEach(data => { %>
+                
+                    <tr>
+                        <td data-cell="Sr.no"><%= i++; %></td>
+                        <td data-cell="Full name"><%= data.full_name %></td>
+                        <td data-cell="Email"><%= data.email %></td>
+                        <td data-cell="Username"><%= data.username %></td>
+                        <td data-cell="Gender"><%= data.gender %></td>
+                        <td data-cell="Country"><%= data.country %></td>
+                        
+                    <td data-cell="Actions">
+                        <div class="dropdown" data-dropdown="">
+                            <a class="dropdown_btn btn btn-light" data-dropdown-button="">Actions</a>
+                            <div class="dropdown-menu">
+                                    <a href="view_user?id=<%= data.member_id %>" class="dropdown_item sm">View Detail</a>
+                                
+                                <form action="">
+                                    <a href="picture_setting?id=<%= data.member_id %>" class="dropdown_item sm">Picture Setting</a>
+                                </form>
+                                <form action="">
+                                    <a href="update_record?id=<%= data.member_id %>" class="dropdown_item sm">Update Record</a>
+                                </form>
+                                <form action="">
+                                    <a href="delete_record?id=<%= data.member_id %>" class="dropdown_item sm">Delete Record</a>
+                                </form>
+                            </div>
+                          </div>
+                    </td>
+                    </tr>
+                
+                
+                <% }) %>
+
+            </tbody></table>
+        </div>
+    </div>
+    </main>

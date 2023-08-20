@@ -1,0 +1,23 @@
+<div class="form_body">
+    <div class="form_box">
+        <h1>login</h1>
+        <% if(error != ''){ %>
+            <div class="alert error">
+              <%= error %>
+            </div>
+        <% } %>
+        <form action="/login" method="post">
+        <div class="form_group">
+            <label for="Email">Email</label>
+            <input type="Email" name="email" id="Email" placeholder="Enter Email Address">
+        </div>
+        <div class="form_group">
+            <label for="Password">Password</label>
+            <input type="Password" name="password" id="Password" placeholder="Enter Current Password">
+        </div>
+        <div class="form_group">
+            <button class="btn btn-dark" type="submit">Login</button>
+        </div>
+    </form>
+    </div>
+</div>
